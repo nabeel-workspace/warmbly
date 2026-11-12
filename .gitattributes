@@ -1,0 +1,5 @@
+# Shell scripts run under /bin/sh inside Linux containers and CI. A CRLF
+# checkout gives them a "#!/bin/sh\r" shebang, which exec reports as
+# "no such file or directory" before the script's first line runs, so the
+# container crash-loops. Keep them LF whatever core.autocrlf says.
+*.sh text eol=lf
